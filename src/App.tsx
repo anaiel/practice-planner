@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import Root from 'pages/Root';
 
 function App() {
-    return <div className="App"></div>
+    return <Root />;
 }
 
-export default App
+export default App;
