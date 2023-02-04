@@ -1,4 +1,4 @@
-import MainRoutes from 'modules/routing/MainRoutes';
+import MainRoutes from 'routing/MainRoutes';
 
 const Root = () => {
     return <MainRoutes />;

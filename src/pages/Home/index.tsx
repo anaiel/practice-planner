@@ -1,4 +1,4 @@
-import { MainRoutesPaths } from 'modules/routing/MainRoutes';
+import { MainRoutesPaths } from 'routing/MainRoutes';
 import { Link } from 'react-router-dom';
 
 const Home = () => {

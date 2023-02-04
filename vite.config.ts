@@ -4,11 +4,13 @@ import pkg from 'vite-plugin-linter';
 const { EsLinter, linterPlugin, TypeScriptLinter } = pkg;
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePluginFonts } from 'vite-plugin-fonts';
+import jotaiDebugLabel from 'jotai/babel/plugin-debug-label';
+import jotaiReactRefresh from 'jotai/babel/plugin-react-refresh';
 
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
     plugins: [
-        react(),
+        react({ babel: { plugins: [jotaiDebugLabel, jotaiReactRefresh] } }),
         tsconfigPaths(),
         linterPlugin({
             include: ['./src/**/*.ts', './src/**/*.tsx'],
