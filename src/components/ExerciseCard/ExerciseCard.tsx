@@ -7,6 +7,7 @@ type Props = Exercise & {
     onClick?: () => void;
     /** @default "Select exercise" */
     clickLabel?: string;
+    'data-testid'?: string;
 };
 
 const ExerciseCard = ({
@@ -15,9 +16,10 @@ const ExerciseCard = ({
     description,
     onClick,
     clickLabel = 'Select exercise',
+    ...props
 }: Props) => {
     return (
-        <li className={styles.wrapper}>
+        <li {...props} className={styles.wrapper}>
             <div className={styles.name}>{name}</div>
             {nbPlayers && (
                 <div className={styles.quickInfo}>

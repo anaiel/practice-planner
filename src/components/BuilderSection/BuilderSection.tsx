@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from 'react';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import styles from './BuilderSection.module.css';
 

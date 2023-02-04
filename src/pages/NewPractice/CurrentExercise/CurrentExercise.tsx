@@ -17,7 +17,7 @@ const CurrentExercise = () => {
     };
 
     return (
-        <BuilderSection title="Current exercise">
+        <BuilderSection title="Current exercise" data-testid="current-exercise">
             {currentExercise && (
                 <form className={styles.form}>
                     <div className={styles.form}>

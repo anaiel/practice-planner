@@ -31,6 +31,7 @@ const CurrentPractice = () => {
                                 {...exercise}
                                 onClick={() => selectExerciseHandler(exercise)}
                                 clickLabel="Edit exercise"
+                                data-testid={`current-practice-${exercise.id}`}
                             />
                         ))}
                     </ExerciseBlock>
