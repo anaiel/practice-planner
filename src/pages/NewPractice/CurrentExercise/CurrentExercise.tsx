@@ -47,7 +47,7 @@ const CurrentExercise = () => {
                         <label htmlFor="playersType">Players type:</label>
                         <input
                             type="text"
-                            value={currentExercise.playersType}
+                            value={currentExercise.playersType ?? ''}
                             onChange={(e) =>
                                 handler({
                                     field: 'playersType',
@@ -70,7 +70,7 @@ const CurrentExercise = () => {
                         <label htmlFor="description">Description</label>
                         <textarea
                             id="description"
-                            value={currentExercise.description}
+                            value={currentExercise.description ?? ''}
                             onChange={(e) =>
                                 handler({
                                     field: 'description',
@@ -79,6 +79,7 @@ const CurrentExercise = () => {
                             }
                         />
                     </div>
+
                     {canSubmit && (
                         <button
                             type="submit"
