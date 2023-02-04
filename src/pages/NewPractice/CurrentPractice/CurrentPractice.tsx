@@ -1,17 +1,21 @@
 import BuilderSection from 'components/BuilderSection';
 import ExerciseCard from 'components/ExerciseCard';
 import ExerciseBlock from 'components/ExerciseBlock';
-import { useAtom } from 'jotai';
+import { useAtomValue, useSetAtom } from 'jotai';
 import currentPracticeAtom from 'stores/practiceBuilder/currentPractice';
 import currentExerciseAtom from 'stores/practiceBuilder/currentExercise';
 import { createNewExercise } from 'helpers/practiceBuilder';
+import Exercise from 'models/Exercise';
 
 const CurrentPractice = () => {
-    const [currentPractice] = useAtom(currentPracticeAtom);
+    const currentPractice = useAtomValue(currentPracticeAtom);
 
-    const [, setCurrentExercise] = useAtom(currentExerciseAtom);
+    const setCurrentExercise = useSetAtom(currentExerciseAtom);
     const newExerciseHandler = () => {
         setCurrentExercise(createNewExercise());
+    };
+    const selectExerciseHandler = (exercise: Exercise) => {
+        setCurrentExercise(exercise);
     };
 
     return (
@@ -20,7 +24,12 @@ const CurrentPractice = () => {
                 {currentPractice.exercises.map((exerciseBlock) => (
                     <ExerciseBlock key={exerciseBlock.id}>
                         {exerciseBlock.exercises.map((exercise) => (
-                            <ExerciseCard key={exercise.id} {...exercise} />
+                            <ExerciseCard
+                                key={exercise.id}
+                                {...exercise}
+                                onClick={() => selectExerciseHandler(exercise)}
+                                clickLabel="Edit exercise"
+                            />
                         ))}
                     </ExerciseBlock>
                 ))}

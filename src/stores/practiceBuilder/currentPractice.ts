@@ -12,3 +12,19 @@ export const addExerciseAtom = atom(null, (_, set, exercise: Exercise) => {
         exercises: addExerciseToBlock(exercise, curr.exercises),
     }));
 });
+
+export const practiceExercisesAtom = atom(
+    (get) => get(currentPracticeAtom).exercises,
+    (_, set, exercise: Exercise) => {
+        set(currentPracticeAtom, (curr) => ({
+            ...curr,
+            exercises: curr.exercises.map((block) => ({
+                ...block,
+                exercises: block.exercises.map((ex) => {
+                    if (ex.id === exercise.id) return exercise;
+                    return ex;
+                }),
+            })),
+        }));
+    }
+);

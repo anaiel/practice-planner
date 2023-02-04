@@ -2,13 +2,15 @@ import BuilderSection from 'components/BuilderSection';
 import NumberInputWidget from 'components/NumberInputWidget/NumberInputWidget';
 import { useAtom, useSetAtom } from 'jotai';
 import Exercise from 'models/Exercise';
-import { handleExerciseFormAtom } from 'stores/practiceBuilder/currentExercise';
 import { addExerciseAtom } from 'stores/practiceBuilder/currentPractice';
+import { handleExerciseFormAtom } from 'stores/practiceBuilder/practiseBuilder';
 
 import styles from './CurrentExercise.module.css';
 
 const CurrentExercise = () => {
-    const [currentExercise, handler] = useAtom(handleExerciseFormAtom);
+    const [{ currentExercise, canSubmit }, handler] = useAtom(
+        handleExerciseFormAtom
+    );
     const addExercise = useSetAtom(addExerciseAtom);
     const handleSubmit = (exercise: Exercise) => {
         addExercise(exercise);
@@ -77,15 +79,17 @@ const CurrentExercise = () => {
                             }
                         />
                     </div>
-                    <button
-                        type="submit"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleSubmit(currentExercise);
-                        }}
-                    >
-                        Add exercise
-                    </button>
+                    {canSubmit && (
+                        <button
+                            type="submit"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleSubmit(currentExercise);
+                            }}
+                        >
+                            Add exercise
+                        </button>
+                    )}
                 </form>
             )}
         </BuilderSection>
