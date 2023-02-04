@@ -24,10 +24,11 @@ export const handleExerciseFormAtom = atom(
     }),
     (get, set, { field, value }: FieldUpdateAction) => {
         const currentExercise = get(currentExerciseAtom);
-        set(
-            currentExerciseAtom,
-            currentExercise && { ...currentExercise, [field]: value }
-        );
-        if (currentExercise) set(practiceExercisesAtom, currentExercise);
+        const newExercise = currentExercise && {
+            ...currentExercise,
+            [field]: value,
+        };
+        set(currentExerciseAtom, newExercise);
+        if (newExercise) set(practiceExercisesAtom, newExercise);
     }
 );
