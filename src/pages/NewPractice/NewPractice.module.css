@@ -1,0 +1,19 @@
+.wrapper {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    gap: 32px;
+    padding: 32px;
+    max-width: 1400px;
+    margin-inline: auto;
+}
+.wrapper > * {
+    flex: 1;
+}
+
+.wrapper h2 {
+    font-family: var(--font-highlight);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}

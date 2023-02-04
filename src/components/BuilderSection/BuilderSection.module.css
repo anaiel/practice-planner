@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.main {
+    border-radius: var(--rounded);
+    background-color: var(--white);
+    padding: 16px;
+    flex: 1;
+}
