@@ -5,6 +5,10 @@
     background-color: var(--white);
 }
 
+.currentExercise {
+    border: 1px solid var(--secondary);
+}
+
 .titleLine {
     display: flex;
     justify-content: space-between;

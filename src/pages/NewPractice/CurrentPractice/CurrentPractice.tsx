@@ -3,7 +3,9 @@ import ExerciseCard from 'components/ExerciseCard';
 import ExerciseBlock from 'components/ExerciseBlock';
 import { useAtomValue, useSetAtom } from 'jotai';
 import currentPracticeAtom from 'stores/practiceBuilder/currentPractice';
-import currentExerciseAtom from 'stores/practiceBuilder/currentExercise';
+import currentExerciseAtom, {
+    currentExerciseIdAtom,
+} from 'stores/practiceBuilder/currentExercise';
 import { createNewExercise } from 'helpers/practiceBuilder';
 import Exercise from 'models/Exercise';
 import { VisuallyHidden } from 'react-aria';
@@ -21,6 +23,8 @@ const CurrentPractice = () => {
         setCurrentExercise(exercise);
     };
 
+    const currentExerciseId = useAtomValue(currentExerciseIdAtom);
+
     return (
         <BuilderSection
             title="Current practice"
@@ -34,6 +38,7 @@ const CurrentPractice = () => {
                             <ExerciseCard
                                 key={exercise.id}
                                 {...exercise}
+                                current={exercise.id === currentExerciseId}
                                 onClick={() => selectExerciseHandler(exercise)}
                                 clickLabel="Edit exercise"
                                 data-testid={`current-practice-${exercise.id}`}

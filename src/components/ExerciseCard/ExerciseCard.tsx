@@ -1,3 +1,4 @@
+import { clsx } from 'clsx';
 import Exercise from 'models/Exercise';
 import { Fragment } from 'react';
 import { VisuallyHidden } from 'react-aria';
@@ -9,6 +10,7 @@ type Props = Exercise & {
     /** @default "Select exercise" */
     clickLabel?: string;
     'data-testid'?: string;
+    current?: boolean;
 };
 
 const ExerciseCard = ({
@@ -19,6 +21,7 @@ const ExerciseCard = ({
     onClick,
     duration,
     clickLabel = 'Select exercise',
+    current = false,
     ...props
 }: Props) => {
     const quickInfo: string[] = [];
@@ -27,7 +30,10 @@ const ExerciseCard = ({
     if (equipment) quickInfo.push(equipment);
 
     return (
-        <li {...props} className={styles.wrapper}>
+        <li
+            {...props}
+            className={clsx(styles.wrapper, current && styles.currentExercise)}
+        >
             <header>
                 <div className={styles.titleLine}>
                     <div className={styles.name}>{name}</div>
