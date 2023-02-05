@@ -1,5 +1,17 @@
 .form {
-    display: grid;
-    grid-template-columns: max-content auto;
-    gap: 8px;
+    --gap: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.numberWidgetBlock {
+    display: flex;
+    gap: var(--gap);
+}
+
+.numberWidgetBlock > * {
+    flex: 1;
+    width: 0;
 }

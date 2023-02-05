@@ -9,9 +9,9 @@
 .focusedSection {
     background-color: var(--primary-lightest);
     border-radius: var(--rounded);
-    padding: var(--content-padding);
     margin-bottom: calc(-1 * var(--screen-padding));
     margin-top: calc(-1 * var(--screen-padding) / 2);
+    padding: var(--content-padding);
     padding-top: calc(var(--screen-padding) / 2);
 }
 
@@ -32,10 +32,5 @@
 
 .main {
     border-radius: var(--rounded);
-    padding: var(--content-padding);
     flex: 1;
-}
-
-.focusedSection .main {
-    padding: unset;
 }

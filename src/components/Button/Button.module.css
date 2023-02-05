@@ -1,0 +1,7 @@
+.primary {
+    border-radius: var(--rounded);
+    padding: 16px 24px;
+    background-color: var(--primary);
+    color: var(--white);
+    font-weight: 700;
+}

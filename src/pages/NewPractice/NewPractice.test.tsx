@@ -31,7 +31,7 @@ test('Clicking on an exercise in the practice timeline should open it in the exe
     expect(screen.queryByText('Name')).toBeNull();
     const exercise = screen.getByText('Edit exercise');
     fireEvent.click(exercise);
-    expect(screen.queryByText('Name')).toBeNull();
+    expect(screen.queryByText('Name')).not.toBeNull();
 });
 
 test('Changing the name in the exercise editor should update the practice timeline', async () => {
@@ -39,7 +39,7 @@ test('Changing the name in the exercise editor should update the practice timeli
     fireEvent.click(btn);
     const exercise = screen.getByTestId(`current-practice-${exerciseId}`);
     expect(exercise).toHaveTextContent('My exercise');
-    const nameInput = await screen.findByLabelText('Name:');
+    const nameInput = await screen.findByLabelText('Name');
     fireEvent.change(nameInput, { target: { value: 'New name' } });
     expect(exercise).toHaveTextContent('New name');
 });
