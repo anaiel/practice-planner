@@ -3,6 +3,7 @@ type Exercise = {
     name: string;
     nbPlayers?: number;
     playersType?: string;
+    equipment?: string;
     duration: number;
     description?: string;
 };

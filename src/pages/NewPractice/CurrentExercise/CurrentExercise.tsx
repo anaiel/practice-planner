@@ -2,6 +2,7 @@ import BuilderSection from 'components/BuilderSection';
 import NumberInputWidget from 'components/NumberInputWidget/NumberInputWidget';
 import { useAtom, useSetAtom } from 'jotai';
 import Exercise from 'models/Exercise';
+import { useEffect, useRef } from 'react';
 import { addExerciseAtom } from 'stores/practiceBuilder/currentPractice';
 import { handleExerciseFormAtom } from 'stores/practiceBuilder/practiseBuilder';
 
@@ -16,6 +17,14 @@ const CurrentExercise = () => {
         addExercise(exercise);
     };
 
+    const idRef = useRef(currentExercise?.id);
+    const firstInputRef = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+        if (idRef.current === currentExercise?.id) return;
+        idRef.current = currentExercise?.id;
+        firstInputRef.current?.focus();
+    }, [currentExercise]);
+
     return (
         <BuilderSection title="Current exercise" data-testid="current-exercise">
             {currentExercise && (
@@ -23,6 +32,7 @@ const CurrentExercise = () => {
                     <div className={styles.form}>
                         <label htmlFor="name">Name:</label>
                         <input
+                            ref={firstInputRef}
                             id="name"
                             type="text"
                             value={currentExercise.name}
@@ -65,6 +75,18 @@ const CurrentExercise = () => {
                             }
                             increment={5}
                             min={0}
+                        />
+
+                        <label htmlFor="equipment">Equipment</label>
+                        <input
+                            type="text"
+                            value={currentExercise.equipment ?? ''}
+                            onChange={(e) =>
+                                handler({
+                                    field: 'equipment',
+                                    value: e.target.value,
+                                })
+                            }
                         />
 
                         <label htmlFor="description">Description</label>

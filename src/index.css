@@ -1,6 +1,8 @@
 body {
     --primary: #04ac87;
-    --bg: #f1edff;
+    --primary-lightest: #cdeee7;
+    --secondary: #232ed1;
+    --secondary-lightest: #d3d5f6;
     --white: white;
     --grey-700: #334155;
 
@@ -10,5 +12,5 @@ body {
     --rounded: 8px;
 
     font-family: var(--font);
-    background-color: var(--bg);
+    background-color: var(--white);
 }

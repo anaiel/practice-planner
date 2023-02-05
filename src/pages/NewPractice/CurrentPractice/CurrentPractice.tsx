@@ -6,6 +6,7 @@ import currentPracticeAtom from 'stores/practiceBuilder/currentPractice';
 import currentExerciseAtom from 'stores/practiceBuilder/currentExercise';
 import { createNewExercise } from 'helpers/practiceBuilder';
 import Exercise from 'models/Exercise';
+import { VisuallyHidden } from 'react-aria';
 
 import styles from './CurrentPractice.module.css';
 
@@ -21,7 +22,11 @@ const CurrentPractice = () => {
     };
 
     return (
-        <BuilderSection title="Current practice" contentClass={styles.wrapper}>
+        <BuilderSection
+            title="Current practice"
+            contentClass={styles.wrapper}
+            focus
+        >
             <div className={styles.practiceTimeline}>
                 {currentPractice.exercises.map((exerciseBlock) => (
                     <ExerciseBlock key={exerciseBlock.id}>
@@ -38,7 +43,11 @@ const CurrentPractice = () => {
                 ))}
             </div>
 
-            <button onClick={newExerciseHandler}>Add exercise</button>
+            <button onClick={newExerciseHandler} className={styles.addButton}>
+                <VisuallyHidden>Add exercise</VisuallyHidden>
+                <span aria-hidden>+</span>
+            </button>
+            <div className={styles.placeholder} aria-hidden />
         </BuilderSection>
     );
 };

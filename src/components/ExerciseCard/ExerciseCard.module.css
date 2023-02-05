@@ -5,6 +5,12 @@
     background-color: var(--white);
 }
 
+.titleLine {
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondary);
+}
+
 .name {
     font-family: var(--font-highlight);
     color: var(--primary);
@@ -14,6 +20,15 @@
 .quickInfo {
     font-size: 0.725rem;
     color: var(--grey-700);
+}
+
+.description {
+    margin-top: 8px;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .button {

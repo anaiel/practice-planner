@@ -1,12 +1,41 @@
 .wrapper {
+    --content-padding: 16px;
+
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
+.focusedSection {
+    background-color: var(--primary-lightest);
+    border-radius: var(--rounded);
+    padding: var(--content-padding);
+    margin-bottom: calc(-1 * var(--screen-padding));
+    margin-top: calc(-1 * var(--screen-padding) / 2);
+    padding-top: calc(var(--screen-padding) / 2);
+}
+
+.wrapper h2 {
+    font-family: var(--font-highlight);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary);
+    height: 1.725rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.focusedSection h2 {
+    font-size: 1.725rem;
+    color: var(--secondary);
+}
+
 .main {
     border-radius: var(--rounded);
-    background-color: var(--white);
-    padding: 16px;
+    padding: var(--content-padding);
     flex: 1;
+}
+
+.focusedSection .main {
+    padding: unset;
 }
