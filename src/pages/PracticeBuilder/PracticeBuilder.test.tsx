@@ -3,7 +3,7 @@ import { createNewExercise, createNewPractice } from 'helpers/practiceBuilder';
 import { createStore, Provider } from 'jotai';
 import currentPracticeAtom from 'stores/practiceBuilder/currentPractice';
 import { v4 as uuid } from 'uuid';
-import NewPractice from './NewPractice';
+import PracticeBuilder from './PracticeBuilder';
 
 const exerciseId = uuid();
 
@@ -22,7 +22,7 @@ beforeEach(() => {
     store.set(currentPracticeAtom, practice);
     render(
         <Provider store={store}>
-            <NewPractice />
+            <PracticeBuilder />
         </Provider>
     );
 });

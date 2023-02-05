@@ -1,6 +1,6 @@
 import BuilderSection from 'components/BuilderSection';
 import Button from 'components/Button';
-import NumberInputWidget from 'components/NumberInputWidget/NumberInputWidget';
+import NumberInput from 'components/NumberInput/NumberInput';
 import TextAreaInput from 'components/TextAreaInput';
 import TextInput from 'components/TextInput';
 import { useAtom, useSetAtom } from 'jotai';
@@ -9,9 +9,9 @@ import { useEffect, useRef } from 'react';
 import { addExerciseAtom } from 'stores/practiceBuilder/currentPractice';
 import { handleExerciseFormAtom } from 'stores/practiceBuilder/practiseBuilder';
 
-import styles from './CurrentExercise.module.css';
+import styles from './ExerciseEditor.module.css';
 
-const CurrentExercise = () => {
+const ExerciseEditor = () => {
     const [{ currentExercise, canSubmit }, handler] = useAtom(
         handleExerciseFormAtom
     );
@@ -34,7 +34,7 @@ const CurrentExercise = () => {
         <BuilderSection title="Current exercise" data-testid="current-exercise">
             {currentExercise && (
                 <form className={styles.form}>
-                    <div className={styles.form}>
+                    <div className={styles.formContent}>
                         <TextInput
                             ref={firstInputRef}
                             id="name"
@@ -50,7 +50,7 @@ const CurrentExercise = () => {
                         />
 
                         <div className={styles.numberWidgetBlock}>
-                            <NumberInputWidget
+                            <NumberInput
                                 label="Number of players"
                                 value={currentExercise.nbPlayers ?? 0}
                                 onChange={(newValue) =>
@@ -62,7 +62,7 @@ const CurrentExercise = () => {
                                 minValue={0}
                             />
 
-                            <NumberInputWidget
+                            <NumberInput
                                 label="Duration"
                                 value={currentExercise.duration}
                                 onChange={(newValue) =>
@@ -129,4 +129,4 @@ const CurrentExercise = () => {
     );
 };
 
-export default CurrentExercise;
+export default ExerciseEditor;

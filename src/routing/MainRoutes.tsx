@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import NewPractice from 'pages/NewPractice';
+import PracticeBuilder from 'pages/PracticeBuilder';
 import Home from 'pages/Home';
 
 export enum MainRoutesPaths {
-    NewPractice = 'new-practice',
+    PracticeBuilder = 'new-practice',
 }
 
 const MainRoutes = () => {
@@ -12,8 +12,8 @@ const MainRoutes = () => {
             <Route path="/*">
                 <Route index element={<Home />} />
                 <Route
-                    path={MainRoutesPaths.NewPractice}
-                    element={<NewPractice />}
+                    path={MainRoutesPaths.PracticeBuilder}
+                    element={<PracticeBuilder />}
                 />
 
                 <Route path="*" element={<Navigate to="/" replace />} />

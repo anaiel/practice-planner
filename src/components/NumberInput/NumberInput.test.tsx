@@ -1,10 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { useState } from 'react';
-import NumberInputWidget from './NumberInputWidget';
+import NumberInput from './NumberInput';
 
 const Test = () => {
     const [value, setValue] = useState(0);
-    return <NumberInputWidget label="test" value={value} onChange={setValue} />;
+    return <NumberInput label="test" value={value} onChange={setValue} />;
 };
 
 test('The count should be updated when the user blurs the input', () => {

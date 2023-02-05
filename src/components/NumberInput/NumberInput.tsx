@@ -5,7 +5,7 @@ import { useRef } from 'react';
 import InputWrapper from 'components/InputWrapper';
 import Button from 'components/Button';
 
-import styles from './NumberInputWidget.module.css';
+import styles from './NumberInput.module.css';
 
 type Props = Omit<NumberFieldStateOptions, 'locale'>;
 
@@ -15,7 +15,7 @@ type Props = Omit<NumberFieldStateOptions, 'locale'>;
  * input reverts to its latest value. This works correctly without strict mode.
  * Tests were provided to describe the expected behaviour and prove it works.
  */
-const NumberInputWidget = (props: Props) => {
+const NumberInput = (props: Props) => {
     const { locale } = useLocale();
     const state = useNumberFieldState({ ...props, locale });
     const inputRef = useRef<HTMLInputElement>(null);
@@ -57,4 +57,4 @@ const NumberInputWidget = (props: Props) => {
     );
 };
 
-export default NumberInputWidget;
+export default NumberInput;

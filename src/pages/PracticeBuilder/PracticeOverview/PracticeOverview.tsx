@@ -10,9 +10,9 @@ import { createNewExercise } from 'helpers/practiceBuilder';
 import Exercise from 'models/Exercise';
 import { VisuallyHidden } from 'react-aria';
 
-import styles from './CurrentPractice.module.css';
+import styles from './PracticeOverview.module.css';
 
-const CurrentPractice = () => {
+const PracticeOverview = () => {
     const currentPractice = useAtomValue(currentPracticeAtom);
 
     const setCurrentExercise = useSetAtom(currentExerciseAtom);
@@ -57,4 +57,4 @@ const CurrentPractice = () => {
     );
 };
 
-export default CurrentPractice;
+export default PracticeOverview;

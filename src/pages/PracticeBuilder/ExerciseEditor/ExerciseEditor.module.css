@@ -6,6 +6,12 @@
     gap: var(--gap);
 }
 
+.formContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
 .numberWidgetBlock {
     display: flex;
     gap: var(--gap);

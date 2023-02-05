@@ -13,6 +13,5 @@ export type ExerciseBlock = {
     id: string;
     name: string;
     exercises: Exercise[];
-    /** In minutes */
     duration?: number;
 };
